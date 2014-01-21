@@ -1,34 +1,24 @@
 package iabuscas.teste;
 
-import iabuscas.estrutura.Grafo;
-import iabuscas.estrutura.GrafoNaoDirigido;
+import iabuscas.buscas.BuscaEmLargura;
+import iabuscas.buscas.Nodo;
+import iabuscas.exemplos.missionarioscanibais.MCAcao;
+import iabuscas.exemplos.missionarioscanibais.MCEstado;
+import iabuscas.exemplos.missionarioscanibais.MCFuncaoSucessor;
 
 public class Teste {
 
 	public static void main(String[] args) {
-		
-		Grafo grafo = new GrafoNaoDirigido();
-		
-		grafo.criarVertice(1);
-		grafo.criarVertice(2);
-		grafo.criarVertice(3);
-		grafo.criarVertice(4);
-		grafo.criarVertice(5);
-		grafo.criarVertice(6);
-		
-		grafo.criarAresta(1, 2);
-		grafo.criarAresta(1, 5);
-		
-		grafo.criarAresta(2, 5);
-		grafo.criarAresta(2, 3);
-		//grafo.criarAresta(2, 1);
-		
-		grafo.criarAresta(3, 4);
-		
-		grafo.criarAresta(4, 5);
-		grafo.criarAresta(4, 6);
-		
-		System.out.println(grafo);
-	}
 
+		MCEstado estado = new MCEstado(3, 3, 'E', 0, 0);
+
+		Nodo nodo = new Nodo(estado, new MCAcao("Estado incical"));
+		
+		BuscaEmLargura buscaEmLargura = new BuscaEmLargura();
+		
+		Nodo resultado = buscaEmLargura.buscar(nodo, new MCFuncaoSucessor());
+		
+		resultado.imprimeBackTrace();
+		System.out.println("Custo total: " + resultado.getCusto());
+	}
 }

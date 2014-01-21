@@ -1,5 +1,6 @@
 package iabuscas.agente;
 
-public class Acao {
+public interface Acao {
 
+	public int getCusto();
 }

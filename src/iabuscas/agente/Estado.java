@@ -1,5 +1,9 @@
 package iabuscas.agente;
 
-public class Estado {
-
+public interface Estado {
+	
+	public boolean isObjetivo();
+	
+	public boolean isAcaoValida();
+	
 }
