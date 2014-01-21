@@ -1,34 +1,25 @@
 package iabuscas.teste;
 
-import iabuscas.estrutura.Grafo;
-import iabuscas.estrutura.GrafoNaoDirigido;
+import iabuscas.buscas.Nodo;
+import iabuscas.exemplos.missionarioscanibais.MCAcao;
+import iabuscas.exemplos.missionarioscanibais.MCEstado;
+import iabuscas.exemplos.missionarioscanibais.MCFuncaoSucessor;
 
 public class Teste {
 
 	public static void main(String[] args) {
 		
-		Grafo grafo = new GrafoNaoDirigido();
+		MCEstado estado = new MCEstado(3, 3, 'E', 0, 0);
 		
-		grafo.criarVertice(1);
-		grafo.criarVertice(2);
-		grafo.criarVertice(3);
-		grafo.criarVertice(4);
-		grafo.criarVertice(5);
-		grafo.criarVertice(6);
+		Nodo nodo = new Nodo(estado, new MCAcao("Estado inicial"));
 		
-		grafo.criarAresta(1, 2);
-		grafo.criarAresta(1, 5);
+		System.out.println(nodo);
 		
-		grafo.criarAresta(2, 5);
-		grafo.criarAresta(2, 3);
-		//grafo.criarAresta(2, 1);
+		MCFuncaoSucessor funcaoSucessor = new MCFuncaoSucessor();
 		
-		grafo.criarAresta(3, 4);
-		
-		grafo.criarAresta(4, 5);
-		grafo.criarAresta(4, 6);
-		
-		System.out.println(grafo);
+		for(Nodo nodo2 : funcaoSucessor.gerarSucessores(nodo)){
+			System.out.println(nodo2);
+		}
 	}
 
 }
