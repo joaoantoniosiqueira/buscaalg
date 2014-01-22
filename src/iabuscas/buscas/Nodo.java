@@ -51,4 +51,11 @@ public class Nodo{
 	public String toString() {
 		return estado.toString() + " --> " + acao.toString();
 	}
+	
+	public void imprimeBackTrace(){
+		if(noPai != null){
+			 noPai.imprimeBackTrace();
+			 System.out.println(toString());
+		}
+	}
 }

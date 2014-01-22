@@ -51,48 +51,20 @@ public class MCEstado implements Estado {
 	@Override
 	public String toString() {
 		String out = "";
-		if(MEsquerda == 3){
-			out = "MMM";
-		}
-		if(MEsquerda == 2){
-			out = "MM";
-		}
-		if(MEsquerda == 1){
-			out = "M";
-		}
-		if(CEsquerda == 3){
-			out += "CCC";
-		}
-		if(CEsquerda == 2){
-			out += "CC";
-		}
-		if(CEsquerda == 1){
-			out += "C";
-		}
-		
-		out += " | ";
-		out += barco;
-		out += " | ";
-		
-		if(MDireita == 3){
-			out += "MMM";
-		}
-		if(MDireita == 2){
-			out += "MM";
-		}
-		if(MDireita == 1){
+		for(int i = 0; i < MEsquerda; i++){
 			out += "M";
 		}
-		if(CDireira == 3){
-			out += "CCC";
-		}
-		if(CDireira == 2){
-			out += "CC";
-		}
-		if(CDireira == 1){
+		for(int i = 0; i < CEsquerda; i++){
 			out += "C";
 		}
-		
+		out += " | " + barco + " | ";
+		for(int i = 0; i < MDireita; i++){
+			out += "M";
+		}
+		for(int i = 0; i < CDireira; i++){
+			out += "C";
+		}	
+	
 		return out;
 	}
 
