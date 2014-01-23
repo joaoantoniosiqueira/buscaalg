@@ -21,6 +21,16 @@ public class TorreEstado implements Estado {
 		this.discos = discos;
 	}
 	
+	public TorreEstado(TorreEstado estado){
+		this.pino1 = new ArrayList<>();
+		this.pino2 = new ArrayList<>();
+		this.pino3 = new ArrayList<>();
+		this.pino1.addAll(estado.pino1);
+		this.pino2.addAll(estado.pino2);
+		this.pino3.addAll(estado.pino3);
+		this.discos = estado.discos;
+	}
+	
 	@Override
 	public boolean isObjetivo() {
 		return (isOrdenada(pino3) && discos == pino3.size());
@@ -41,7 +51,7 @@ public class TorreEstado implements Estado {
 	
 	@Override
 	public String toString() {
-		return "Pino 1: " + pino1.toString() + "\nPino 2: " + pino2.toString() + "\nPino 3: " + pino3.toString();
+		return "Pino 1: " + pino1.toString() + "\nPino 2: " + pino2.toString() + "\nPino 3: " + pino3.toString() + "\n";
 	}
 	
 	@Override
@@ -49,5 +59,5 @@ public class TorreEstado implements Estado {
 		if(!(obj instanceof TorreEstado)) return false;
 		TorreEstado estado = (TorreEstado) obj;
 		return estado.toString().equals(this.toString());
-	}
+	}	
 }

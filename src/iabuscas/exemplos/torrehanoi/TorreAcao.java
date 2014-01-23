@@ -4,7 +4,11 @@ import iabuscas.agente.Acao;
 
 public class TorreAcao implements Acao {
 
-	private String descricao; 
+	private String descricao;
+	
+	public TorreAcao(String descricao) {
+		this.descricao = descricao;
+	}
 	
 	@Override
 	public int getCusto() {
@@ -17,7 +21,7 @@ public class TorreAcao implements Acao {
 
 	@Override
 	public String toString() {
-		return descricao;
+		return descricao + "\n";
 	}
 
 }
