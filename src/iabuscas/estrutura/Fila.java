@@ -18,7 +18,12 @@ public class Fila<T> {
 		return objetos.isEmpty();
 	}
 	
-	public boolean contemElement(T t){
-		return objetos.contains(t);
+	public boolean contemElemento(T t){
+		for (T objeto : objetos) {
+			if(objeto.equals(t)){
+				return true;
+			}
+		}
+		return false;
 	}
 }

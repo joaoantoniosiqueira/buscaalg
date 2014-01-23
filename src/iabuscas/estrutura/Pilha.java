@@ -20,6 +20,11 @@ public class Pilha<T> {
 	}
 	
 	public boolean contemElemento(T t){
-		return this.objetos.contains(t);
+		for (T objeto : objetos) {
+			if(objeto.equals(t)){
+				return true;
+			}
+		}
+		return false;
 	}
 }

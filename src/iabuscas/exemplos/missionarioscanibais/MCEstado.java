@@ -68,4 +68,25 @@ public class MCEstado implements Estado {
 		return out;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MCEstado other = (MCEstado) obj;
+		if (CDireira != other.CDireira)
+			return false;
+		if (CEsquerda != other.CEsquerda)
+			return false;
+		if (MDireita != other.MDireita)
+			return false;
+		if (MEsquerda != other.MEsquerda)
+			return false;
+		if (barco != other.barco)
+			return false;
+		return true;
+	}		
 }

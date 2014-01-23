@@ -12,19 +12,17 @@ public class BuscaProfundidade implements Busca{
 	
 	public Nodo buscar(Nodo nodoRoot, FuncaoSucessor funcaoSucessor){
 		pilha.insere(nodoRoot);
+		visitados.add(nodoRoot);
 		while(!pilha.isVazia()){
 			Nodo nodo = pilha.remove();
 			for(Nodo sucessor : funcaoSucessor.gerarSucessores(nodo)){
 				if(sucessor.estado.isObjetivo()) return sucessor;
 				
-				if(!visitados.contains(sucessor)){
-					visitados.add(sucessor);
+				if(!visitados.contains(sucessor)){					
 					pilha.insere(sucessor);
 				}
-				else{
-					pilha.remove();
-				}
 			}
+			visitados.add(nodo);
 		}
 		return null;
 	}

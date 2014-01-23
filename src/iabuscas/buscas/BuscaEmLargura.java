@@ -47,7 +47,7 @@ public class BuscaEmLargura implements Busca{
 					visitados.add(sucessor);
 					fila.insere(sucessor);
 				}
-				else if(fila.contemElement(sucessor)){
+				else if(fila.contemElemento(sucessor)){
 					if(sucessor.estado.isObjetivo()){
 						return sucessor;
 					}
